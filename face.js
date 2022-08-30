@@ -5,8 +5,8 @@ import encoding from 'k6/encoding';
 const client = new grpc.Client();
 client.load(['./'], 'face.proto');
 
-let image5 = open('image-1.png', 'b');
-let image6 = open('image-1.png', 'b');
+let image5 = open('images/image-1.png', 'b');
+let image6 = open('images/image-1.png', 'b');
 
 
 
