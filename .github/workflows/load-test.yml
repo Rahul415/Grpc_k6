@@ -22,10 +22,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+      - name: k6 login cloud --token 78ab2cfb81698d56fed412bd2b9093f8cf4b7e7bb92b6b89ee0bceefb51a9734
+        uses: k6io/action@v0.1
       - name: Run cloud k6 test
         uses: k6io/action@v0.1
         with:
           filename: face.js
+#           cloud: true
+#           token: ${{ secrets.K6_CLOUD_API_TOKEN }}
 
   # This workflow contains a single job called "build"
   build:
