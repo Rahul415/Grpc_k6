@@ -1,0 +1,75 @@
+syntax = "proto3";
+package platform;
+
+option go_package = "./pb";
+
+message FaceMatchRequest {
+  bytes Image = 1;
+  bytes Image2 = 2;
+  string XCallID = 3;
+  string type = 4;
+  bytes rectB = 5;
+  string preprocess_type = 6;
+  string app_id = 7;
+}
+
+message FaceMatchResponse {
+  int32 code = 1;
+  string message = 2;
+  string status = 3;
+  bytes resultJsonB = 4;
+  string checksum = 5;
+  double distance = 6;
+  repeated double sufiencoding = 7;
+  repeated double dlibencoding = 8;
+
+}
+
+
+
+message FaceMatchMhereRequest {
+  bytes Image = 1;
+  bytes Image2 = 2;
+  repeated double Signature = 3;
+  double Threshold = 4;
+  string Env = 5;
+  string XcallID = 6;
+  repeated double UserSignature = 7;
+  double FrThreshold = 8;
+  string UserType = 9;
+  repeated double SufiSignature = 10;
+  repeated double UserSufiSignature = 11;
+  double UserSufiThreshold = 12;
+  string UserID = 13;
+  bool newUser = 14;
+  string preprocess_type = 15;
+  string model_type = 16;
+}
+
+message FaceMatchMhereResponse {
+  int32 dlibCode = 1;
+  string status = 2;
+  repeated double  signature = 3;
+  double   VVDist = 5;
+  string decision = 6;
+  bool deepCheck = 7;
+  int32    IsNewUser = 8 ;
+  string    FrMandatoryFlag = 9;
+  string DlibFaceDetector = 10;
+  bool SufiMatch = 11;
+  double  SufiScore = 12;
+  bool    validSuFI = 13;
+  string DlibMatchBy = 14;
+  repeated double    SufiSignature = 15;
+  string dlibError = 16;
+  string sufiError = 17;
+  int32 sufiCode = 18;
+  bool DlibMatch = 19;
+  string SufiMatchBy = 20;
+  string SufiFaceDetector = 21;
+}
+
+service FaceMatch {
+  rpc faceMatch(FaceMatchRequest) returns(FaceMatchResponse);
+  rpc faceMatchMhere(FaceMatchMhereRequest) returns(FaceMatchMhereResponse);
+}
