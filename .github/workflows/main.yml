@@ -23,7 +23,7 @@ jobs:
      steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Run local k6 face
+      - name: Run cloud k6 face
         uses: grafana/k6-action@v0.2.0
         with:
          filename: face.js
