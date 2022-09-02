@@ -11,7 +11,7 @@ let image6 = open('images/image-1.png', 'b');
 
 
 export default () => {
-  client.connect('localhost:9020', {
+  client.connect('35.200.139.232:80', {
     plaintext: true
   });
 
