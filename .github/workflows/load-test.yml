@@ -27,6 +27,8 @@ jobs:
         uses: grafana/k6-action@v0.2.0
         with:
          filename: face.js
+         cloud: true
+         token: ${{ secrets.K6_CLOUD_API_TOKEN }}
 
 
   # This workflow contains a single job called "build"
